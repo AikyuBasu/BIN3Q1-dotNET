@@ -1,4 +1,5 @@
-﻿using System;
+﻿using be.ipl.domaine;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -7,42 +8,39 @@ using System.Threading.Tasks;
 
 namespace Application_Console_CSharp
 {
-    internal class Director
+    [Serializable]
+    public class Director : Person 
     {
+
+
+    private static readonly long serialVersionUID = 5952964360274024205L;
+    private IList<Movie> directedMovies;
+
+    public Director(String name, String firstname, DateTime birthDate) : base(name,firstname,birthDate)
+    {
+        directedMovies = new List<Movie>();
     }
-}
 
-public class Director extends Person implements Serializable {
+    public bool AddMovie(Movie movie)
+    {
 
+        if (directedMovies.Contains(movie))
+            return false;
 
-    private static final long serialVersionUID = 5952964360274024205L;
-private List<Movie> directedMovies;
+        if (movie.GetDirector() == null)
+            movie.SetDirector(this);
 
-public Director(String name, String firstname, Calendar birthDate)
-{
-    super(name, firstname, birthDate);
-    directedMovies = new ArrayList<Movie>();
-}
+        directedMovies.Add(movie);
 
-public boolean addMovie(Movie movie)
-{
+        return true;
 
-    if (directedMovies.contains(movie))
-        return false;
+    }
 
-    if (movie.getDirector() == null)
-        movie.setDirector(this);
+    public IEnumerator<Movie> Movies()
+    {
+        return directedMovies.GetEnumerator();
+    }
 
-    directedMovies.add(movie);
-
-    return true;
 
 }
-
-public Iterator<Movie> Movies()
-{
-    return directedMovies.iterator();
-}
-	
-	
 }

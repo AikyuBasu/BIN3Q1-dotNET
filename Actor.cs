@@ -1,13 +1,8 @@
 ﻿using Application_Console_CSharp;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace be.ipl.domaine
 {
+    [Serializable]
     public class Actor : Person {
 
     private static readonly long serialVersionUID = 1L;
@@ -21,9 +16,8 @@ namespace be.ipl.domaine
 
 
 
-    public Actor(String name, String firstname, DateTime birthDate, int sizeInCentimeter) 
+    public Actor(String name, String firstname, DateTime birthDate, int sizeInCentimeter) : base (name, firstname, birthDate) 
     {
-        base(name, firstname, birthDate);
         this.sizeInCentimeter = sizeInCentimeter;
         movies = new List<Movie>();
     }
@@ -52,8 +46,8 @@ namespace be.ipl.domaine
         if ((movie == null) || movies.Contains(movie))
             return false;
 
-        if (!movie.containsActor(this))
-            movie.addActor(this);
+        if (!movie.ContainsActor(this))
+            movie.AddActor(this);
 
         movies.Add(movie);
 
@@ -68,7 +62,7 @@ namespace be.ipl.domaine
 
     public override String GetName()
     {
-        return base.GetName().ToUpperCase();
+        return base.GetName().ToUpper();
     }
 }
 

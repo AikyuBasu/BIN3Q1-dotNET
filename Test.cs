@@ -1,4 +1,5 @@
-﻿using be.ipl.domaine;
+﻿using Application_Console_CSharp;
+using be.ipl.domaine;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,73 +14,73 @@ namespace be.ipl.client
     {
 
 
-        public static void main(String[] args)
+        public static void Main(String[] args)
         {
 
             Actor[] myActors =  {
-                new Actor( "Assange", "Julian", new GregorianCalendar(1961, 6, 3), 187),
-                new Actor( "Paul", "Newmann", new GregorianCalendar(1925, 0, 26), 187),
-                new Actor( "Becker", "Norma Jean", new GregorianCalendar(1926, 5, 1), 187)
+                new Actor( "Assange", "Julian", new DateTime(1961, 6, 3), 187),
+                new Actor( "Paul", "Newmann", new DateTime(1925, 0, 26), 187),
+                new Actor( "Becker", "Norma Jean", new DateTime(1926, 5, 1), 187)
         };
 
             Director[] myDirectors = {
                 // month start 0
-                new Director("Spielberg", "Steven", new GregorianCalendar(1946, 11, 18)),
-                new Director("Coen", "Ettan", new GregorianCalendar(1957, 8, 21)),
-                new Director("Coppolla", "Francis Ford", new GregorianCalendar(1939, 3, 7))
+                new Director("Spielberg", "Steven", new DateTime(1946, 11, 18)),
+                new Director("Coen", "Ettan", new DateTime(1957, 8, 21)),
+                new Director("Coppolla", "Francis Ford", new DateTime(1939, 3, 7))
         };
 
 
-            Movie bigLebow = new Movie("The Big Lebowski", 1996);
-            Movie eT = new Movie("E.T.", 1982);
+            Movie bigLebow = new("The Big Lebowski", 1996);
+            Movie eT = new("E.T.", 1982);
 
-            eT.addActor(myActors[0]);
-            eT.addActor(myActors[2]);
-            eT.setDirector(myDirectors[0]);
+            eT.AddActor(myActors[0]);
+            eT.AddActor(myActors[2]);
+            eT.SetDirector(myDirectors[0]);
 
-            bigLebow.addActor(myActors[1]);
-            bigLebow.addActor(myActors[2]);
-            bigLebow.setDirector(myDirectors[1]);
+            bigLebow.AddActor(myActors[1]);
+            bigLebow.AddActor(myActors[2]);
+            bigLebow.SetDirector(myDirectors[1]);
 
-            PersonList myPersons = PersonList.getInstance();
+            PersonList myPersons = PersonList.GetInstance();
 
-            for (Actor act : myActors)
+            foreach (Actor act in myActors)
             {
-                myPersons.addPerson(act);
+                myPersons.AddPerson(act);
             }
 
-            for (Director director : myDirectors)
+            foreach (Director director in myDirectors)
             {
-                myPersons.addPerson(director);
+                myPersons.AddPerson(director);
             }
 
-            Iterator<Person> ActorIt = myPersons.personList();
-            while (ActorIt.hasNext())
+            IEnumerator<Person> ActorIt = myPersons.personList();
+            while (ActorIt.MoveNext())
             {
-                Person person = ActorIt.next();
-                System.out.println(person);
+                Person person = ActorIt.Current;
+                Console.WriteLine(person);
 
-                Iterator<Movie> MoviesIt;
-                if (person instanceof Actor) {
-                    System.out.println("a jouÃ© dans les films suivants ");
+                IEnumerator<Movie> MoviesIt;
+                if (person is Actor) {
+                    Console.WriteLine("a jouÃ© dans les films suivants ");
                     MoviesIt = ((Actor)person).Movies();
                 }
             else
                 {
-                    if (person instanceof Director) {
-                        System.out.println("a dirigÃ© les films suivants :");
+                    if (person is Director) {
+                        Console.WriteLine("a dirigÃ© les films suivants :");
                         MoviesIt = ((Director)person).Movies();
                     }
                 else
                     {
-                        System.out.println("est inconnu et n'a rien Ã  faire ici !!! ");
+                        Console.WriteLine("est inconnu et n'a rien Ã  faire ici !!! ");
                         continue;
                     }
                 }
-                while (MoviesIt.hasNext())
+                while (MoviesIt.MoveNext())
                 {
-                    Movie Movie = MoviesIt.next();
-                    System.out.println(Movie);
+                    Movie Movie = MoviesIt.Current;
+                    Console.WriteLine(Movie);
                 }
 
             }

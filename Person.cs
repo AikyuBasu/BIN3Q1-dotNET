@@ -15,7 +15,8 @@ private readonly String name; // ne se définit pas a l'intitialization. au cont
 private readonly String firstname;
 private readonly DateTime birthDate;
 
-public String GetName()
+
+public virtual String GetName()
 {
     return name;
 }
