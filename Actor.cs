@@ -5,26 +5,22 @@ namespace be.ipl.domaine
     [Serializable]
     public class Actor : Person {
 
-    private static readonly long serialVersionUID = 1L;
-    private readonly int sizeInCentimeter;
-    private IList<Movie> movies;
+    private readonly int _sizeInCentimeter;
+    private IList<Movie> _movies;
 
-    public int GetSizeInCentimeter()
-    {
-        return sizeInCentimeter;
-    }
+    public int SizeInCentimeter { get {  return _sizeInCentimeter; } }
 
 
 
     public Actor(String name, String firstname, DateTime birthDate, int sizeInCentimeter) : base (name, firstname, birthDate) 
     {
-        this.sizeInCentimeter = sizeInCentimeter;
-        movies = new List<Movie>();
+        this._sizeInCentimeter = sizeInCentimeter;
+        _movies = new List<Movie>();
     }
     
     public override String ToString()
     {
-        return "Actor [name = " + GetName() + " firstname = " + GetFirstname() + " sizeInCentimeter = " + sizeInCentimeter + " birthdate = " + GetBirthDate() + "]";
+        return "Actor [name = " + Name + " firstname = " + Firstname + " sizeInCentimeter = " + _sizeInCentimeter + " birthdate = " + Birthdate + "]";
     }
 
     /**
@@ -33,7 +29,7 @@ namespace be.ipl.domaine
      */
     public IEnumerator<Movie> Movies()
     {
-        return movies.GetEnumerator();
+        return _movies.GetEnumerator();
     }
 
     /**
@@ -43,26 +39,26 @@ namespace be.ipl.domaine
      */
     public bool AddMovie(Movie movie)
     {
-        if ((movie == null) || movies.Contains(movie))
+        if ((movie == null) || _movies.Contains(movie))
             return false;
 
         if (!movie.ContainsActor(this))
             movie.AddActor(this);
 
-        movies.Add(movie);
+        _movies.Add(movie);
 
         return true;
     }
 
     public bool ContainsMovie(Movie movie)
     {
-        return movies.Contains(movie);
+        return _movies.Contains(movie);
     }
 
 
-    public override String GetName()
+    public override String Name
     {
-        return base.GetName().ToUpper();
+        get { return base.Name.ToUpper(); }
     }
 }
 

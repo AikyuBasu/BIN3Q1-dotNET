@@ -11,38 +11,30 @@ public class Person : ISerializable
 
 private static readonly long serialVersionUID = 1L;
 
-private readonly String name; // ne se définit pas a l'intitialization. au contraire de const. 
-private readonly String firstname;
-private readonly DateTime birthDate;
+private readonly String _name; // ne se définit pas a l'intitialization. au contraire de const. 
+private readonly String _firstname;
+private readonly DateTime _birthDate;
 
+                                // fonctionnement GETTER/SETTER ; pas de "get/set" avant la fonction et majuscule.
+                                // Peut utilisé get/set en mot clé (implémentation automatique)
+public virtual String Name {  get { return _name; } }
 
-public virtual String GetName()
-{
-    return name;
-}
+public String Firstname { get { return _firstname; } }
 
-public String GetFirstname()
-{
-    return firstname;
-}
-
-public String GetBirthDate()
-{
-    return birthDate.ToString();
-}
+public String Birthdate { get { return _birthDate.ToString(); } }
 
 
 public Person(String name, String firstname, DateTime birthDate)
 {
-    this.name = name;
-    this.firstname = firstname;
-    this.birthDate = birthDate;
+    this._name = name;
+    this._firstname = firstname;
+    this._birthDate = birthDate;
 }
 
 
     public override String ToString()
 {
-    return "Person [name = " + name + ", firstname = " + firstname + ", birthDate =  " + GetBirthDate() + "]";
+    return "Person [name = " + _name + ", firstname = " + _firstname + ", birthDate =  " + _birthDate + "]";
 }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

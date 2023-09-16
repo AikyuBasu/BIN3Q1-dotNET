@@ -8,29 +8,26 @@ using System.Threading.Tasks;
 
 namespace Application_Console_CSharp
 {
-    [Serializable]
+    [Serializable] // implements, c'est comme une annotation
     public class Director : Person 
     {
 
-
-    private static readonly long serialVersionUID = 5952964360274024205L;
-    private IList<Movie> directedMovies;
+    private IList<Movie> _directedMovies;
 
     public Director(String name, String firstname, DateTime birthDate) : base(name,firstname,birthDate)
     {
-        directedMovies = new List<Movie>();
+        _directedMovies = new List<Movie>();
     }
 
     public bool AddMovie(Movie movie)
     {
 
-        if (directedMovies.Contains(movie))
+        if (_directedMovies.Contains(movie))
             return false;
 
-        if (movie.GetDirector() == null)
-            movie.SetDirector(this);
+            if (movie.Director == null) movie.Director = this;
 
-        directedMovies.Add(movie);
+        _directedMovies.Add(movie);
 
         return true;
 
@@ -38,7 +35,7 @@ namespace Application_Console_CSharp
 
     public IEnumerator<Movie> Movies()
     {
-        return directedMovies.GetEnumerator();
+        return _directedMovies.GetEnumerator();
     }
 
 

@@ -18,16 +18,16 @@ namespace be.ipl.client
         {
 
             Actor[] myActors =  {
-                new Actor( "Assange", "Julian", new DateTime(1961, 6, 3), 187),
-                new Actor( "Paul", "Newmann", new DateTime(1925, 0, 26), 187),
-                new Actor( "Becker", "Norma Jean", new DateTime(1926, 5, 1), 187)
+                new Actor( "Assange", "Julian", new DateTime(1961, 7, 3), 187),
+                new Actor( "Paul", "Newmann", new DateTime(1925, 1, 26), 187),
+                new Actor( "Becker", "Norma Jean", new DateTime(1926, 6, 1), 187)
         };
 
             Director[] myDirectors = {
                 // month start 0
-                new Director("Spielberg", "Steven", new DateTime(1946, 11, 18)),
-                new Director("Coen", "Ettan", new DateTime(1957, 8, 21)),
-                new Director("Coppolla", "Francis Ford", new DateTime(1939, 3, 7))
+                new Director("Spielberg", "Steven", new DateTime(1946, 12, 18)),
+                new Director("Coen", "Ettan", new DateTime(1957, 9, 21)),
+                new Director("Coppolla", "Francis Ford", new DateTime(1939, 4, 7))
         };
 
 
@@ -36,11 +36,11 @@ namespace be.ipl.client
 
             eT.AddActor(myActors[0]);
             eT.AddActor(myActors[2]);
-            eT.SetDirector(myDirectors[0]);
+            eT.Director = myDirectors[0];
 
             bigLebow.AddActor(myActors[1]);
             bigLebow.AddActor(myActors[2]);
-            bigLebow.SetDirector(myDirectors[1]);
+            bigLebow.Director = myDirectors[1];
 
             PersonList myPersons = PersonList.GetInstance();
 
