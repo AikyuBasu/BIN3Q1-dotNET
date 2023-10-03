@@ -1,4 +1,5 @@
 ﻿using LINQDataContext;
+using System.ComponentModel.DataAnnotations;
 
 DataContext dc = new DataContext();
 
@@ -43,4 +44,36 @@ var Res4 = from s in dc.Students
            where s.Section_ID == 1110
            orderby s.Last_Name
            select new { LName = s.Last_Name, FName = s.First_Name, YResult = s.Year_Result };
-//TODO
+foreach (var stu in Res4)
+{
+    Console.WriteLine("{0} {1} {2}", stu.LName, stu.FName, stu.YResult);
+}
+
+Console.WriteLine("======Exercice 4.1=======");
+
+float Res5 = dc.Students.Average(a => (float) a.Year_Result);
+
+Console.WriteLine("avg year result is {0}", Res5);
+
+Console.WriteLine("======Exercice 4.5=======");
+
+int Res6 = dc.Students.Count();
+Console.WriteLine("nb of lines {0}", Res6);
+
+Console.WriteLine("======Exercice 5.1=======");
+
+var Res7 = dc.Students.GroupBy(a => a.Section_ID);
+
+foreach(var Section in Res7)
+{
+    Console.WriteLine("Section n°{0} : {1} students.", Section.Key, Section.Count());
+    int Max = 0;
+    foreach (var Student in Section)
+    {
+        if (Student.Year_Result > Max) Max = Student.Year_Result;
+    }
+    Console.WriteLine("Max grade for section {0} is {1}.", Section.First().Section_ID, Max);
+}
+
+Console.WriteLine("======Exercice 5.3=======");
+// Donner le résultat moyen (AVG_Result) et le mois en chiffre (BirtMonth) pour les étudiants né le même mois entre 1970 et 1985.

@@ -10,3 +10,14 @@ U:\.NET\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_Data
 U:\.NET\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\refint\LINQ_DataContext.dll
 U:\.NET\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.pdb
 U:\.NET\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\ref\LINQ_DataContext.dll
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\bin\Debug\net6.0\LINQ_DataContext.deps.json
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\bin\Debug\net6.0\LINQ_DataContext.dll
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\bin\Debug\net6.0\LINQ_DataContext.pdb
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.AssemblyInfoInputs.cache
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.AssemblyInfo.cs
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.csproj.CoreCompileInputs.cache
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.dll
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\refint\LINQ_DataContext.dll
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\LINQ_DataContext.pdb
+C:\Users\alici\Projets Web\BIN3Q1-dotNET\S2\Semaine 2 - LINQ_DataContext\obj\Debug\net6.0\ref\LINQ_DataContext.dll
