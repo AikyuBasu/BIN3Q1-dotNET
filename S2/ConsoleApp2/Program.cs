@@ -77,3 +77,46 @@ foreach(var Section in Res7)
 
 Console.WriteLine("======Exercice 5.3=======");
 // Donner le résultat moyen (AVG_Result) et le mois en chiffre (BirtMonth) pour les étudiants né le même mois entre 1970 et 1985.
+var Res8 = dc.Students
+    .Where(stu => stu.BirthDate.Year >= 1970 && stu.BirthDate.Year <= 1985)
+    .GroupBy(stu => stu.BirthDate.Month);
+
+foreach(var MonthGroup in Res8)
+{
+    float Sum_Results = 0;
+    Console.WriteLine("There are {0} students born in month no {1}", MonthGroup.Count(), MonthGroup.First().BirthDate.Month);
+    foreach (var Stu in MonthGroup)
+    {
+        Console.WriteLine("Student ID {0} has a year result of {1}", Stu.Student_ID, Stu.Year_Result);
+        Sum_Results += Stu.Year_Result;
+    }
+    float AVG_Result = Sum_Results / MonthGroup.Count();
+    Console.WriteLine("Students born in month {0} have an average result of {1}", MonthGroup.First().BirthDate.Month, AVG_Result);
+}
+
+
+Console.WriteLine("======Exercice 5.5=======");
+// Donner pour chaque cours le nom du professeur responsable ainsi que la section dont il fait partie.
+// Course_name	Section_name	Professor_name
+
+foreach (var Course in dc.Courses)
+{
+    string? CourseName = Course.Course_Name;
+    Professor? Professor = (from professor in dc.Professors
+                             where professor.Professor_ID == Course.Professor_ID
+                             select professor)
+                             .SingleOrDefault();
+
+    string? ProfessorName = Professor?.Professor_Name;
+
+    string? SectionName = (from Section in dc.Sections 
+                           where Section.Section_ID == Professor?.Section_ID 
+                           select Section)
+                           .SingleOrDefault()?
+                           .Section_Name;
+
+    Console.WriteLine("Course {0} / professor {1} / section {2}", CourseName, ProfessorName, SectionName);
+}
+
+
+Console.WriteLine("======Exercice 5.7=======");
