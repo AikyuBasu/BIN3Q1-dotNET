@@ -120,3 +120,21 @@ foreach (var Course in dc.Courses)
 
 
 Console.WriteLine("======Exercice 5.7=======");
+//Donner pour toutes les sections les professeurs qui en sont membres.
+/*section_id->section_name : 
+professor_name1
+professor_name2*/
+
+var professorSections = from professor in dc.Professors
+                        join section in dc.Sections on professor.Section_ID equals section.Section_ID
+                        group professor by section into groupedProfessors
+                        select new
+                        {
+                            Section = groupedProfessors.Key,
+                            Professors = groupedProfessors.Select(p => p.Professor_Name)
+                        };
+
+foreach (var sectionProfessors in professorSections)
+{
+    Console.WriteLine($"{sectionProfessors.Section.Section_Name} -> {string.Join(", ", sectionProfessors.Professors)}");
+}
