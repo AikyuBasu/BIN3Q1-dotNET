@@ -74,10 +74,10 @@ public partial class NorthwindContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB Initial Catalog = Northwind; MultipleActiveResultSets = True")
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;MultipleActiveResultSets=True;")
      .UseLazyLoadingProxies()
-    .LogTo(Console.WriteLine, LogLevel.Information)
-             .EnableSensitiveDataLogging();
+     .LogTo(Console.WriteLine, LogLevel.Information)
+     .EnableSensitiveDataLogging();
 
         } }
 
