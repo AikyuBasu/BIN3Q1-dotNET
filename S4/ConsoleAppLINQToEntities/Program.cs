@@ -175,3 +175,4 @@ using (NorthwindContext ctx = new NorthwindContext())
     var c = ctx.Categories.Where(e => e.CategoryName.Contains(catName));
     Console.WriteLine(c.First().CategoryName);
 }
+
