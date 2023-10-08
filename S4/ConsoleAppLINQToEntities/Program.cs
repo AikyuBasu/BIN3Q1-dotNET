@@ -92,3 +92,86 @@ foreach (var productSale in productSales)
 }
 
 Console.WriteLine("============= 6) Afficher tous les employés (leur nom) qui ont sous leur responsabilité la région « Western ». ===================");
+
+var matchingEmployees = context.Employees.Where(emp =>
+    emp.Territories.Any(territory => // utiliser ANY quand je cherche un certain item dans une collection
+        territory.Region != null &&
+        territory.Region.RegionDescription == "Western"
+    )
+).ToList();
+
+foreach (var employee in matchingEmployees)
+{
+    Console.WriteLine(employee.FirstName + " " + employee.LastName);
+}
+
+
+Console.WriteLine("============== 7) 7.Quels sont les territoires gérés par le supérieur de « Suyama Michael » ==========================");
+var matchingTerritories = context.Territories
+    .Where(territory => territory.Employees
+    .Any(e => e.InverseReportsToNavigation
+    .Any(e => e.LastName == "Suyama")))
+    .ToList();
+
+foreach(var territory in matchingTerritories)
+{
+    Console.WriteLine(territory.TerritoryDescription);
+}
+
+Console.WriteLine(" ============ UPDATES : Mettre en majuscule le nom de tous les clients ===================");
+using (NorthwindContext ctx = new NorthwindContext()) {
+    var customers = from e in ctx.Employees select e;
+
+    foreach (var customer in customers)
+    {
+        customer.LastName = customer.LastName.ToUpper();
+    }
+
+    try
+    {
+        ctx.SaveChanges();
+    } catch (Exception e)
+    {
+        Console.WriteLine($"{e.Message}");
+    }
+
+    Console.WriteLine("Done");
+    foreach (var customer in customers)
+    {
+        Console.WriteLine(customer.LastName);
+    }
+
+}
+
+Console.WriteLine(" ============ INSERT : Ajoutez une catégorie à partir d’un nom saisi au clavier ===================");
+using (NorthwindContext ctx = new NorthwindContext())
+{
+    Console.WriteLine("Entrez une description de catégorie :");
+    string? catName = Console.ReadLine().Trim();
+    if (ctx.Categories.Where(e => e.CategoryName == catName).Count() > 0)
+    {
+        Console.WriteLine("Nom de catégorie existe déjà.");
+    } else
+    {
+        Category cat = new Category
+           {
+               CategoryName = catName
+           };
+        try
+            {
+                ctx.Categories.Add(cat);
+                ctx.SaveChanges();
+
+    
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        Console.WriteLine("Done");
+
+        
+    }
+    var c = ctx.Categories.Where(e => e.CategoryName.Contains(catName));
+    Console.WriteLine(c.First().CategoryName);
+}
