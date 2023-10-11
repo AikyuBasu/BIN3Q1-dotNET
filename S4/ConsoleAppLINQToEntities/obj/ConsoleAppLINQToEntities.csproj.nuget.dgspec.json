@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\ALICIA\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj": {}
+    "C:\\Users\\20213073\\source\\repos\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\ALICIA\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj": {
+    "C:\\Users\\20213073\\source\\repos\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\ALICIA\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj",
+        "projectUniqueName": "C:\\Users\\20213073\\source\\repos\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj",
         "projectName": "ConsoleAppLINQToEntities",
-        "projectPath": "C:\\Users\\user\\Documents\\ALICIA\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\ALICIA\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\obj\\",
+        "projectPath": "C:\\Users\\20213073\\source\\repos\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\ConsoleAppLINQToEntities.csproj",
+        "packagesPath": "C:\\Users\\20213073\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\20213073\\source\\repos\\BIN3Q1-.NET\\S4\\ConsoleAppLINQToEntities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\20213073\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,5 +1,4 @@
 ﻿using ConsoleAppLINQToEntities.Models;
-using Microsoft.EntityFrameworkCore;
 
 NorthwindContext context = new NorthwindContext();
 
